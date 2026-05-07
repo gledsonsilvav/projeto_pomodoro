@@ -1,0 +1,33 @@
+.input {
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  color: var(--text-default);
+  outline: none; /* Remove o contorno azul padrão do navegador */
+  border: 0.2rem solid transparent; /* Reserva o espaço de 2px em volta de tudo */
+  border-bottom: 0.2rem solid var(--primary); /* Pinta só a linha de baixo */
+  transition: all 0.1s ease-in-out; /* Suaviza as mudanças */
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Quando o usuário clica no input */
+.input:focus {
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--primary); /* A borda que era transparente aparece */
+}
+
+/* Estilo do texto de instrução interno */
+.input::placeholder {
+  color: var(--gray-500);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* Quando o input estiver bloqueado (ex: cronômetro rodando) */
+.input:disabled {
+  border-bottom: 0.2rem solid var(--disabled);
+  color: var(--text-muted);
+  cursor: not-allowed; /* Muda o ícone do mouse para "bloqueado" */
+}

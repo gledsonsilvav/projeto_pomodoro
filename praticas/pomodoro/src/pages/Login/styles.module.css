@@ -1,0 +1,104 @@
+/* src/pages/Login/styles.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px; /* Evita que o card encoste nas bordas em telas pequenas */
+}
+
+.card {
+  background: white;
+  padding: 40px; /* Espaçamento interno generoso */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px; /* Define um tamanho padrão para o card */
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço uniforme entre os campos */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.inputGroup input {
+  width: 100%; /* Faz o input ocupar toda a largura do card */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho final */
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #1a1a2e; /* Fundo escuro */
+  color: white;
+  font-size: 1rem;
+}
+
+.loginBtn {
+  width: 100%; /* Botão da mesma largura dos inputs */
+  padding: 12px;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: filter 0.2s;
+}
+
+.loginBtn:hover {
+  filter: brightness(0.9);
+}
+
+.actions {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* Estilo para as mensagens de erro/sucesso */
+.feedback {
+  font-size: 0.8rem;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #ffebee;
+  color: #c62828;
+  margin-bottom: 10px;
+}

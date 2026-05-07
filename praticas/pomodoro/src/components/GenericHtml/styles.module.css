@@ -1,0 +1,45 @@
+.genericHtml h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.genericHtml h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.genericHtml p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+  color: var(--text-default);
+}
+
+.genericHtml a {
+  color: var(--primary); /* Usando a cor do seu tema */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.genericHtml a:hover {
+  text-decoration: underline;
+}
+
+.genericHtml ul {
+  padding-left: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.genericHtml li {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.genericHtml img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  display: block;
+  margin: 2.4rem 0;
+}
