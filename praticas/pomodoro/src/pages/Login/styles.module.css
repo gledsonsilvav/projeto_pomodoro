@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f2f5;
-  padding: 20px; /* Evita que o card encoste nas bordas em telas pequenas */
+  background-color: #f5f0f0;
+  padding: 25px; /* Evita que o card encoste nas bordas em telas pequenas */
 }
 
 .card {
@@ -21,7 +21,7 @@
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 25px;
   font-weight: 700;
@@ -41,7 +41,7 @@
 }
 
 .inputGroup label {
-  font-size: 0.85rem;
+  font-size: 1.5rem;
   color: #666;
   font-weight: 600;
 }
@@ -54,7 +54,7 @@
   border: 1px solid #ddd;
   background-color: #1a1a2e; /* Fundo escuro */
   color: white;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .loginBtn {
@@ -65,14 +65,14 @@
   border: none;
   border-radius: 6px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
   margin-top: 10px;
   transition: filter 0.2s;
 }
 
 .loginBtn:hover {
-  filter: brightness(0.9);
+  filter: brightness(0.5);
 }
 
 .actions {
@@ -85,20 +85,36 @@
 .linkBtn {
   background: none;
   border: none;
-  color: #007bff;
-  font-size: 0.75rem;
+  color: #e91e63;      /* Cor alterada para Rosa */
+  font-size: 1.2rem;   /* Aumentado de 0.75 para 1.2 */
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none; /* Tirei o sublinhado para ficar mais limpo */
   cursor: pointer;
   text-transform: uppercase;
+  border: 2px solid #e91e63; /* Adiciona borda igual aos botões da imagem */
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 5px;
 }
 
 /* Estilo para as mensagens de erro/sucesso */
 .feedback {
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   padding: 10px;
   border-radius: 4px;
   background-color: #ffebee;
   color: #c62828;
   margin-bottom: 10px;
+}
+
+/* Adicione isso ao final do seu arquivo styles.module.css */
+.card h2 {
+  color: #333; /* Cor escura para o título "Recuperar Senha" */
+  font-size: 2rem;
+}
+
+.card p {
+  color: #666; /* Cor cinza para a frase de explicação */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }

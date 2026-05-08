@@ -27,14 +27,14 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     e.preventDefault();
     
     // Simulação de validação (Usuário mockado)
-    if (username === 'aluno@pomodoro.com' && password === '123456') {
+    if (username === 'pomodoro' && password === '123456') {
       setIsSuccess(true);
       setMessage('Login realizado com sucesso! Entrando...');
       // Pequeno delay para o usuário ler a mensagem de sucesso antes de mudar de tela
       setTimeout(() => onLoginSuccess(), 1500);
     } else {
       setIsSuccess(false);
-      setMessage('Credenciais inválidas. Tente aluno@pomodoro.com / 123456');
+      setMessage('Credenciais inválidas. Tente pomodoro / 123456');
     }
   };
 
