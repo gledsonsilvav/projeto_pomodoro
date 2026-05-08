@@ -1,0 +1,120 @@
+/* src/pages/Login/styles.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f0f0;
+  padding: 25px; /* Evita que o card encoste nas bordas em telas pequenas */
+}
+
+.card {
+  background: white;
+  padding: 40px; /* Espaçamento interno generoso */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px; /* Define um tamanho padrão para o card */
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço uniforme entre os campos */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.inputGroup label {
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.inputGroup input {
+  width: 100%; /* Faz o input ocupar toda a largura do card */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho final */
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #1a1a2e; /* Fundo escuro */
+  color: white;
+  font-size: 1.5rem;
+}
+
+.loginBtn {
+  width: 100%; /* Botão da mesma largura dos inputs */
+  padding: 12px;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: filter 0.2s;
+}
+
+.loginBtn:hover {
+  filter: brightness(0.5);
+}
+
+.actions {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: #e91e63;      /* Cor alterada para Rosa */
+  font-size: 1.2rem;   /* Aumentado de 0.75 para 1.2 */
+  font-weight: 700;
+  text-decoration: none; /* Tirei o sublinhado para ficar mais limpo */
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid #e91e63; /* Adiciona borda igual aos botões da imagem */
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+/* Estilo para as mensagens de erro/sucesso */
+.feedback {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #ffebee;
+  color: #c62828;
+  margin-bottom: 10px;
+}
+
+/* Adicione isso ao final do seu arquivo styles.module.css */
+.card h2 {
+  color: #333; /* Cor escura para o título "Recuperar Senha" */
+  font-size: 2rem;
+}
+
+.card p {
+  color: #666; /* Cor cinza para a frase de explicação */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}

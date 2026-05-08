@@ -1,0 +1,11 @@
+/* src/components/Container.module.css */
+
+.container {
+  max-width: 98rem; /* 980px */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content {
+  padding: 0 3.2rem; /* Respiro lateral de 32px */
+}

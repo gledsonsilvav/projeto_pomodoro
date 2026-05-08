@@ -1,0 +1,25 @@
+.cycles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.cycleDots {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Classe base para todas as bolinhas */
+.cycleDot {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%; /* Faz o círculo */
+  background-color: var(--gray-500); /* Cor padrão caso esqueça a específica */
+}
+
+/* Classes de cores específicas */
+.workTime { background-color: var(--warning); }
+.shortBreakTime { background-color: var(--primary); }
+.longBreakTime { background-color: var(--info); }

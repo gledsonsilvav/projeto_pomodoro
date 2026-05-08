@@ -1,0 +1,32 @@
+/* src/components/Heading.module.css */
+.container {
+  margin-bottom: 3.2rem; /* Espaço abaixo do cabeçalho */
+}
+
+.heading {
+  display: flex;
+  align-items: center;   /* Alinha verticalmente no centro */
+  justify-content: center; /* Centraliza na tela */
+  gap: 2.4rem;           /* Espaço entre texto e botão */
+  
+  font-size: 3.2rem;     /* 32px */
+  color: var(--text-default);
+}
+
+/* Estilo para o botão que vai dentro do Heading */
+.heading button {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.heading button:hover {
+  background: var(--primary);
+  color: var(--text-over-primary);
+}
