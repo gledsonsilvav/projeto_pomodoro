@@ -6,24 +6,13 @@
 .genericHtml h2 {
   font-size: 2.4rem;
   margin-bottom: 1.2rem;
-  margin-top: 2.4rem;
 }
 
 .genericHtml p {
   font-size: 1.6rem;
   line-height: 1.6;
   margin-bottom: 1.6rem;
-  color: var(--text-default);
-}
-
-.genericHtml a {
-  color: var(--primary); /* Usando a cor do seu tema */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.genericHtml a:hover {
-  text-decoration: underline;
+  color: var(--text-default); /* Garante que respeite o tema light/dark */
 }
 
 .genericHtml ul {
@@ -34,6 +23,13 @@
 .genericHtml li {
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
+  color: var(--text-default);
+}
+
+.genericHtml a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .genericHtml img {

@@ -1,21 +1,25 @@
-import { Container } from '../../components/Container';
-import { CountDown } from '../../components/CountDown';
+import { useEffect } from 'react';
+
+import { Countdown } from '../../components/countdown';
+
 import { MainForm } from '../../components/MainForm';
+
 import { MainTemplate } from '../../templates/MainTemplate';
 
-// REMOVA o export type HomeProps daqui
-// REMOVA as props de dentro dos parênteses da função
+import styles from './styles.module.css';
 
 export function Home() {
+  useEffect(() => {
+    document.title = 'Chronos Pomodoro';
+  }, []);
+
   return (
     <MainTemplate>
-      <Container>
-        <CountDown />
-      </Container>
+      <section className={styles.content}>
+        <Countdown />
 
-      <Container>
         <MainForm />
-      </Container>
+      </section>
     </MainTemplate>
   );
 }

@@ -1,7 +1,8 @@
-import { Container } from '../../components/Container';
-import { Footer } from '../../components/Footer';
 import { Logo } from '../../components/Logo';
 import { Menu } from '../../components/Menu';
+import { Footer } from '../../components/Footer';
+
+import styles from './styles.module.css';
 
 type MainTemplateProps = {
   children: React.ReactNode;
@@ -9,21 +10,14 @@ type MainTemplateProps = {
 
 export function MainTemplate({ children }: MainTemplateProps) {
   return (
-    <>
-      <Container>
-        <Logo />
-      </Container>
+    <main className={styles.container}>
+      <Logo />
 
-      <Container>
-        <Menu />
-      </Container>
+      <Menu />
 
-      {/* Conteúdo dinâmico injetado aqui */}
-      {children}
+      <div className={styles.content}>{children}</div>
 
-      <Container>
-        <Footer />
-      </Container>
-    </>
+      <Footer />
+    </main>
   );
 }

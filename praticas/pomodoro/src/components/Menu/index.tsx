@@ -1,67 +1,91 @@
+import { useEffect, useState } from 'react';
+
 import {
-  HistoryIcon,
-  HouseIcon,
-  MoonIcon,
-  SettingsIcon,
-  SunIcon,
-} from 'lucide-react';
+  House,
+  ClockCounterClockwise,
+  Gear,
+  Moon,
+  Sun,
+} from 'phosphor-react';
+
+import { RouterLink } from '../RouterLink';
+
 import styles from './styles.module.css';
-import { useState, useEffect } from 'react';
 
 type AvailableThemes = 'dark' | 'light';
 
 export function Menu() {
-  // 1. Inicialização preguiçosa (Lazy Initialization)
-  // Busca o tema salvo no navegador assim que o componente nasce
   const [theme, setTheme] = useState<AvailableThemes>(() => {
-    const storageTheme = localStorage.getItem('theme') as AvailableThemes;
-    return storageTheme || 'dark'; // Se não houver nada salvo, o padrão é dark
+    const savedTheme = localStorage.getItem(
+      '@chronos:theme',
+    ) as AvailableThemes | null;
+
+    return savedTheme === 'light'
+      ? 'light'
+      : 'dark';
   });
 
-  // 2. Dicionário de ícones
-  // Evita o uso de vários if/else dentro do HTML (JSX)
-  const nextThemeIcon = {
-    dark: <SunIcon />,
-    light: <MoonIcon />,
-  };
-
   function handleThemeChange(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    event: React.MouseEvent<HTMLAnchorElement>,
   ) {
     event.preventDefault();
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+
+    setTheme((prevTheme) =>
+      prevTheme === 'dark'
+        ? 'light'
+        : 'dark',
+    );
   }
 
-  // 3. Efeito Colateral Único
-  // Toda vez que o tema mudar, ele atualiza o HTML e salva a preferência
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute(
+      'data-theme',
+      theme,
+    );
+
+    localStorage.setItem(
+      '@chronos:theme',
+      theme,
+    );
   }, [theme]);
 
   return (
     <nav className={styles.menu}>
-      <a className={styles.menuLink} href='#' aria-label='Home' title='Home'>
-        <HouseIcon />
-      </a>
+      <RouterLink
+        href="/"
+        title="Ir para Home"
+        aria-label="Ir para Home"
+      >
+        <House size={22} />
+      </RouterLink>
 
-      <a className={styles.menuLink} href='#' aria-label='Histórico' title='Histórico'>
-        <HistoryIcon />
-      </a>
+      <RouterLink
+        href="/history/"
+        title="Ver Histórico"
+        aria-label="Ver Histórico"
+      >
+        <ClockCounterClockwise size={22} />
+      </RouterLink>
 
-      <a className={styles.menuLink} href='#' aria-label='Configurações' title='Configurações'>
-        <SettingsIcon />
-      </a>
+      <RouterLink
+        href="/settings/"
+        title="Configurações"
+        aria-label="Configurações"
+      >
+        <Gear size={22} />
+      </RouterLink>
 
       <a
-        className={styles.menuLink}
-        href='#'
-        aria-label='Mudar Tema'
-        title='Mudar Tema'
+        href="#"
+        title="Mudar tema"
+        aria-label="Mudar tema"
         onClick={handleThemeChange}
       >
-        {/* Renderiza o ícone do dicionário baseado no estado atual */}
-        {nextThemeIcon[theme]}
+        {theme === 'dark' ? (
+          <Sun size={22} />
+        ) : (
+          <Moon size={22} />
+        )}
       </a>
     </nav>
   );

@@ -1,17 +1,28 @@
-import React from 'react';
-import styles from './styles.module.css'; // 1. Importe aqui!
+import type { ComponentProps } from 'react';
+import styles from './styles.module.css';
 
 type DefaultInputProps = {
   id: string;
   labelText: string;
-} & React.ComponentProps<'input'>;
+} & ComponentProps<'input'>;
 
-export function DefaultInput({ id, type, labelText, ...rest }: DefaultInputProps) {
+export function DefaultInput({
+  id,
+  type,
+  labelText,
+  ...rest
+}: DefaultInputProps) {
   return (
     <>
-      <label htmlFor={id}>{labelText}</label>
-      {/* 2. Aplique a className aqui */}
-      <input className={styles.input} id={id} type={type} {...rest} />
+      <label className={styles.label} htmlFor={id}>
+        {labelText}
+      </label>
+      <input 
+        className={styles.input} // Aplicando a classe do CSS Module
+        id={id} 
+        type={type} 
+        {...rest} 
+      />
     </>
   );
 }

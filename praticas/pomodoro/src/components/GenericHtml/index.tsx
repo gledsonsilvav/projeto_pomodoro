@@ -5,6 +5,6 @@ type GenericHtmlProps = {
 };
 
 export function GenericHtml({ children }: GenericHtmlProps) {
-  // Esse componente apenas envelopa o conteúdo em uma div com classe especial
+  // A div abaixo servirá como o "pai" que aplicará os estilos aos filhos
   return <div className={styles.genericHtml}>{children}</div>;
 }

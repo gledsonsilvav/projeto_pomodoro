@@ -1,25 +1,46 @@
-.cycles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
+.container {
+  width: 100%;
+
+  max-width: 70rem;
+
+  margin-top: 4rem;
 }
 
-.cycleDots {
-  display: flex;
-  gap: 0.8rem;
+.container h2 {
+  margin-bottom: 2rem;
+
+  font-size: 2.4rem;
 }
 
-/* Classe base para todas as bolinhas */
-.cycleDot {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%; /* Faz o círculo */
-  background-color: var(--gray-500); /* Cor padrão caso esqueça a específica */
+table {
+  width: 100%;
+
+  border-collapse: collapse;
 }
 
-/* Classes de cores específicas */
-.workTime { background-color: var(--warning); }
-.shortBreakTime { background-color: var(--primary); }
-.longBreakTime { background-color: var(--info); }
+th,
+td {
+  padding: 1.6rem;
+
+  text-align: left;
+
+  background: #1e293b;
+
+  border-bottom: 4px solid #0f172a;
+}
+
+th {
+  color: #94a3b8;
+}
+
+.completed {
+  color: #10b981;
+}
+
+.interrupted {
+  color: #ef4444;
+}
+
+.running {
+  color: #f59e0b;
+}

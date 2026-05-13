@@ -1,22 +1,30 @@
-import { Container } from '../../components/Container';
-import { GenericHtml } from '../../components/GenericHtml';
-import { Heading } from '../../components/Heading';
-import { MainTemplate } from '../../templates/MainTemplate';
+import { useEffect } from 'react';
+
+import { RouterLink } from '../../components/RouterLink';
+
+import styles from './styles.module.css';
 
 export function NotFound() {
+  useEffect(() => {
+    document.title =
+      'Página não encontrada - Chronos Pomodoro';
+  }, []);
+
   return (
-    <MainTemplate>
-      <Container>
-        <GenericHtml>
-          <Heading>404 - Página não encontrada 🚀</Heading>
-          <p>
-            Opa! Parece que a página que você está tentando acessar não existe.
-          </p>
-          <p>
-            Dá pra voltar em segurança para a <a href='/'>página principal</a>.
-          </p>
-        </GenericHtml>
-      </Container>
-    </MainTemplate>
+    <main className={styles.container}>
+      <h1>404 🚀</h1>
+
+      <p>
+        Opa! Parece que essa página não existe.
+      </p>
+
+      <p>
+        Você pode voltar para a{' '}
+        <RouterLink href="/">
+          página principal
+        </RouterLink>
+        .
+      </p>
+    </main>
   );
 }

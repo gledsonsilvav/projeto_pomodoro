@@ -1,19 +1,14 @@
-// src/components/Heading.tsx
-import React from 'react'; 
-import styles from './styles.module.css';
+// src/components/Heading/index.tsx
+import { type ReactNode } from 'react'; // Adicionamos 'type' aqui!
 
-// 1. Definimos o "contrato" (Interface ou Type)
 type HeadingProps = {
-  children: React.ReactNode; // Aceita texto, HTML e ícones
-};
+  children: ReactNode;
+}
 
-// 2. Usamos a DESESTRUTURAÇÃO { children } para o código ficar limpo
 export function Heading({ children }: HeadingProps) {
   return (
-    <header className={styles.container}>
-      <h1 className={styles.heading}>
-        {children}
-      </h1>
-    </header>
+    <h1 style={{ textAlign: 'center', color: '#FFF', margin: '20px 0' }}>
+      {children}
+    </h1>
   );
 }

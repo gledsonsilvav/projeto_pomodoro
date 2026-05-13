@@ -1,37 +1,17 @@
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2.4rem;
-  padding-top: 3.2rem;
-}
+.countdown {
+  font-size: clamp(9rem, 12vw, 15rem);
 
-.logoLink {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  gap: 0.4rem;
-  font-size: 4.2rem;
-  text-decoration: none;
-  color: var(--primary);
-  transition: all 0.1s ease-in-out;
-}
+  font-weight: 700;
 
-.logoLink:hover {
-  filter: brightness(80%);
-}
+  line-height: 0.9;
 
-.logoLink svg {
-  width: 6.4rem;
-  height: 6.4rem;
-}
+  color: var(--text);
 
-.container {
-  /* Mínimo: 8rem | Ideal: 30vw (30% da largura da tela) | Máximo: 16rem */
-  font-size: clamp(8rem, 30vw, 16rem);
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.3;
+  letter-spacing: -0.8rem;
+
+  margin-bottom: 4rem;
+
+  text-shadow:
+    0 0 10px rgba(0, 180, 216, 0.4),
+    0 0 20px rgba(0, 255, 174, 0.25);
 }

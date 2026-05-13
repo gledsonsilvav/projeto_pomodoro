@@ -1,0 +1,114 @@
+.container {
+  width: 100%;
+
+  max-width: 112rem;
+
+  margin: 0 auto;
+
+  padding: 2rem 2rem 4rem;
+}
+
+.heading {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 2.4rem;
+
+  width: 100%;
+
+  padding: 2rem 0 3rem;
+}
+
+.heading h1 {
+  font-size: clamp(3rem, 5vw, 4.8rem);
+
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.deleteButton {
+  min-width: auto;
+
+  margin: 0;
+
+  padding: 1.2rem;
+
+  border: 0;
+
+  border-radius: 0.8rem;
+
+  background: #ab222e;
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.deleteButton svg {
+  width: 2.2rem;
+
+  height: 2.2rem;
+}
+
+.responsiveTable {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border-radius: 0.8rem;
+}
+
+.responsiveTable table {
+  width: 100%;
+
+  min-width: 82rem;
+
+  font-size: 1.7rem;
+
+  border-collapse: collapse;
+}
+
+.responsiveTable th {
+  background-color: var(--card);
+}
+
+.responsiveTable td {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.04
+  );
+}
+
+.responsiveTable th,
+.responsiveTable td {
+  border-bottom: 0.2rem solid
+    rgba(255, 255, 255, 0.08);
+
+  text-align: left;
+
+  padding: 1.8rem;
+}
+
+.thSort {
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.thSort:hover {
+  filter: brightness(80%);
+}

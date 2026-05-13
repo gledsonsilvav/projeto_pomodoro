@@ -1,19 +1,17 @@
-import React from 'react';
+import { type ReactNode, type ButtonHTMLAttributes } from 'react';
 import styles from './styles.module.css';
 
-type DefaultButtonProps = {
-  icon: React.ReactNode; 
-  color?: 'green' | 'red'; // Union Type: aceita apenas estas duas opções
-} & React.ComponentProps<'button'>;
+interface DefaultButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: ReactNode;
+  color?: 'red';
+}
 
-export function DefaultButton({
-  icon,
-  color = 'green', // Valor padrão caso não seja enviado nada
-  ...props
-}: DefaultButtonProps) {
+export function DefaultButton({ icon, color, ...rest }: DefaultButtonProps) {
   return (
-    /* A mágica styles[color] acessa .green ou .red dinamicamente */
-    <button className={`${styles.button} ${styles[color]}`} {...props}>
+    <button 
+      className={`${styles.defaultButton} ${color === 'red' ? styles.red : ''}`} 
+      {...rest}
+    >
       {icon}
     </button>
   );

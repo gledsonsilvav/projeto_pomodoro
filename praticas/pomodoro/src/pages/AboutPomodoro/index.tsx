@@ -1,29 +1,42 @@
-import { Container } from '../../components/Container';
-import { GenericHtml } from '../../components/GenericHtml';
-import { Heading } from '../../components/Heading';
-import { MainTemplate } from '../../templates/MainTemplate';
+import { useEffect } from 'react';
+
+import { RouterLink } from '../../components/RouterLink';
+
+import styles from './styles.module.css';
 
 export function AboutPomodoro() {
+  useEffect(() => {
+    document.title =
+      'Entenda a Técnica Pomodoro - Chronos Pomodoro';
+  }, []);
+
   return (
-    <MainTemplate>
-      <Container>
-        <GenericHtml>
-          <Heading>A Técnica Pomodoro 🍅</Heading>
-          <p>
-            A Técnica Pomodoro é uma metodologia de produtividade criada por{' '}
-            <strong>Francesco Cirillo</strong>.
-          </p>
+    <main className={styles.container}>
+      <h1>A Técnica Pomodoro 🍅</h1>
 
-          <img src='https://placehold.co/600x300' alt='Pomodoro Timer' />
+      <p>
+        A técnica Pomodoro é um método de gerenciamento de tempo baseado em
+        ciclos de foco e descanso.
+      </p>
 
-          <h2>Como funciona?</h2>
-          <ul>
-            <li><strong>1.</strong> Defina uma tarefa.</li>
-            <li><strong>2.</strong> Trabalhe por 25 minutos.</li>
-            <li><strong>3.</strong> Pausa curta de 5 minutos.</li>
-          </ul>
-        </GenericHtml>
-      </Container>
-    </MainTemplate>
+      <p>
+        Você trabalha totalmente focado durante um período e depois realiza
+        pausas curtas para recuperar energia.
+      </p>
+
+      <p>
+        O Chronos ajuda você a organizar tarefas, manter consistência e melhorar
+        produtividade.
+      </p>
+
+      <p>
+        <strong>
+          Pronto pra focar?
+        </strong>{' '}
+        <RouterLink href="/">
+          Voltar para a página inicial
+        </RouterLink>
+      </p>
+    </main>
   );
 }
