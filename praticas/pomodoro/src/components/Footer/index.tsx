@@ -10,7 +10,7 @@ export function Footer() {
       </RouterLink>
 
       <RouterLink href="/home/">
-        Chronos Pomodoro © {new Date().getFullYear()} - Feito com 💚
+        Chronos Pomodoro © {new Date().getFullYear()} - Feito por Gledson
       </RouterLink>
     </footer>
   );

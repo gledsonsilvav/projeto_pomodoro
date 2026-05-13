@@ -14,7 +14,7 @@ import type { TaskStateModel } from '../../models/TaskStateModel';
 
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 
-import { loadBeep } from '../../utils/loadBeep';
+import { playBeep } from '../../utils/loadBeep';
 
 interface TaskContextType {
   state: TaskStateModel;
@@ -24,17 +24,26 @@ interface TaskContextType {
 
 export const TaskContext = createContext({} as TaskContextType);
 
-export function TaskContextProvider({ children }: { children: ReactNode }) {
+export function TaskContextProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const [state, dispatch] = useReducer(
     taskReducer,
     initialTaskState,
     () => {
       try {
-        const storageState = localStorage.getItem('state');
+        const storageState =
+          localStorage.getItem('state');
 
-        if (storageState === null) return initialTaskState;
+        if (storageState === null) {
+          return initialTaskState;
+        }
 
-        const parsedStorageState = JSON.parse(storageState) as TaskStateModel;
+        const parsedStorageState = JSON.parse(
+          storageState,
+        ) as TaskStateModel;
 
         return {
           ...parsedStorageState,
@@ -48,9 +57,9 @@ export function TaskContextProvider({ children }: { children: ReactNode }) {
     },
   );
 
-  const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null);
-
-  const worker = useRef(TimerWorkerManager.getInstance()).current;
+  const worker = useRef(
+    TimerWorkerManager.getInstance(),
+  ).current;
 
   const activeTaskId = state.activeTask?.id;
 
@@ -69,10 +78,7 @@ export function TaskContextProvider({ children }: { children: ReactNode }) {
       const countDownSeconds = e.data;
 
       if (countDownSeconds <= 0) {
-        if (playBeepRef.current) {
-          playBeepRef.current();
-          playBeepRef.current = null;
-        }
+        playBeep();
 
         worker.postMessage({
           command: 'stop',
@@ -85,7 +91,8 @@ export function TaskContextProvider({ children }: { children: ReactNode }) {
         dispatch({
           type: TaskActionTypes.COUNT_DOWN,
           payload: {
-            secondsRemaining: countDownSeconds,
+            secondsRemaining:
+              countDownSeconds,
           },
         });
       }
@@ -93,7 +100,10 @@ export function TaskContextProvider({ children }: { children: ReactNode }) {
   }, [worker]);
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
+    localStorage.setItem(
+      'state',
+      JSON.stringify(state),
+    );
 
     document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
   }, [state]);
@@ -104,16 +114,13 @@ export function TaskContextProvider({ children }: { children: ReactNode }) {
         command: 'stop',
       });
 
-      playBeepRef.current = null;
-
       return;
     }
 
-    playBeepRef.current = loadBeep();
-
     worker.postMessage({
       command: 'start',
-      seconds: state.activeTask.secondsRemaining,
+      seconds:
+        state.activeTask.secondsRemaining,
     });
   }, [activeTaskId, worker]);
 

@@ -8,6 +8,7 @@ self.onmessage = (event: MessageEvent) => {
 
     if (timer) {
       clearInterval(timer);
+      timer = null;
     }
 
     timer = setInterval(() => {
@@ -15,9 +16,11 @@ self.onmessage = (event: MessageEvent) => {
 
       self.postMessage(currentSeconds);
 
-      if (currentSeconds <= 0 && timer) {
-        clearInterval(timer);
-        timer = null;
+      if (currentSeconds <= 0) {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
       }
     }, 1000);
   }

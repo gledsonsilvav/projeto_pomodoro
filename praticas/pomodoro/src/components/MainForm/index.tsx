@@ -8,6 +8,8 @@ import { TaskActionTypes } from '../../contexts/TaskContext/TaskActions';
 
 import { showMessage } from '../../adapters/showMessage';
 
+import { unlockBeep } from '../../utils/loadBeep';
+
 import styles from './styles.module.css';
 
 export function MainForm() {
@@ -19,8 +21,10 @@ export function MainForm() {
 
   const minutes = state.config.workTime;
 
-  function handleCreateNewTask(e: React.FormEvent) {
+  function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    unlockBeep();
 
     showMessage.dismiss();
 
