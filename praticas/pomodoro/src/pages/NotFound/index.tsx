@@ -1,30 +1,37 @@
 import { useEffect } from 'react';
 
+import { WarningCircle } from 'phosphor-react';
+
 import { RouterLink } from '../../components/RouterLink';
+
+import { MainTemplate } from '../../templates/MainTemplate';
 
 import styles from './styles.module.css';
 
 export function NotFound() {
   useEffect(() => {
-    document.title =
-      'Página não encontrada - Chronos Pomodoro';
+    document.title = 'Página não encontrada - Chronos Pomodoro';
   }, []);
 
   return (
-    <main className={styles.container}>
-      <h1>404 🚀</h1>
+    <MainTemplate>
+      <main className={styles.container}>
+        <WarningCircle
+          size={72}
+          weight="fill"
+          className={styles.icon}
+        />
 
-      <p>
-        Opa! Parece que essa página não existe.
-      </p>
+        <h1>Página não encontrada</h1>
 
-      <p>
-        Você pode voltar para a{' '}
-        <RouterLink href="/">
-          página principal
+        <p>
+          A página que você tentou acessar não existe ou foi removida.
+        </p>
+
+        <RouterLink href="/home/" className={styles.backLink}>
+          Voltar para Home
         </RouterLink>
-        .
-      </p>
-    </main>
+      </main>
+    </MainTemplate>
   );
 }

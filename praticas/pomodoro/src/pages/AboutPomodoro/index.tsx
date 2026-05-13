@@ -2,41 +2,51 @@ import { useEffect } from 'react';
 
 import { RouterLink } from '../../components/RouterLink';
 
+import { MainTemplate } from '../../templates/MainTemplate';
+
 import styles from './styles.module.css';
 
 export function AboutPomodoro() {
   useEffect(() => {
-    document.title =
-      'Entenda a Técnica Pomodoro - Chronos Pomodoro';
+    document.title = 'Sobre Pomodoro - Chronos Pomodoro';
   }, []);
 
   return (
-    <main className={styles.container}>
-      <h1>A Técnica Pomodoro 🍅</h1>
+    <MainTemplate>
+      <main className={styles.container}>
+        <h1>Sobre a técnica Pomodoro</h1>
 
-      <p>
-        A técnica Pomodoro é um método de gerenciamento de tempo baseado em
-        ciclos de foco e descanso.
-      </p>
+        <p>
+          A técnica Pomodoro é um método de gerenciamento de tempo criado para
+          aumentar o foco e a produtividade durante as atividades do dia a dia.
+        </p>
 
-      <p>
-        Você trabalha totalmente focado durante um período e depois realiza
-        pausas curtas para recuperar energia.
-      </p>
+        <p>
+          O método funciona alternando períodos de concentração intensa com
+          pequenas pausas estratégicas.
+        </p>
 
-      <p>
-        O Chronos ajuda você a organizar tarefas, manter consistência e melhorar
-        produtividade.
-      </p>
+        <p>
+          Normalmente, utiliza-se:
+        </p>
 
-      <p>
-        <strong>
-          Pronto pra focar?
-        </strong>{' '}
-        <RouterLink href="/">
-          Voltar para a página inicial
+        <ul>
+          <li>25 minutos de foco;</li>
+          <li>5 minutos de descanso curto;</li>
+          <li>
+            descanso longo após alguns ciclos completos.
+          </li>
+        </ul>
+
+        <p>
+          O objetivo é manter a mente descansada e melhorar o rendimento sem
+          gerar fadiga excessiva.
+        </p>
+
+        <RouterLink href="/home/" className={styles.backLink}>
+          Voltar para Home
         </RouterLink>
-      </p>
-    </main>
+      </main>
+    </MainTemplate>
   );
 }

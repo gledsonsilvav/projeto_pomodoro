@@ -1,28 +1,35 @@
 import { useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router';
+
 import {
   House,
   ClockCounterClockwise,
   Gear,
   Moon,
+  SignOut,
   Sun,
 } from 'phosphor-react';
 
 import { RouterLink } from '../RouterLink';
+
+import { useAuthContext } from '../../contexts/AuthContext/AuthContextProvider';
 
 import styles from './styles.module.css';
 
 type AvailableThemes = 'dark' | 'light';
 
 export function Menu() {
+  const { logout } = useAuthContext();
+
+  const navigate = useNavigate();
+
   const [theme, setTheme] = useState<AvailableThemes>(() => {
     const savedTheme = localStorage.getItem(
       '@chronos:theme',
     ) as AvailableThemes | null;
 
-    return savedTheme === 'light'
-      ? 'light'
-      : 'dark';
+    return savedTheme === 'light' ? 'light' : 'dark';
   });
 
   function handleThemeChange(
@@ -31,10 +38,14 @@ export function Menu() {
     event.preventDefault();
 
     setTheme((prevTheme) =>
-      prevTheme === 'dark'
-        ? 'light'
-        : 'dark',
+      prevTheme === 'dark' ? 'light' : 'dark',
     );
+  }
+
+  function handleLogout() {
+    logout();
+
+    navigate('/', { replace: true });
   }
 
   useEffect(() => {
@@ -43,16 +54,13 @@ export function Menu() {
       theme,
     );
 
-    localStorage.setItem(
-      '@chronos:theme',
-      theme,
-    );
+    localStorage.setItem('@chronos:theme', theme);
   }, [theme]);
 
   return (
     <nav className={styles.menu}>
       <RouterLink
-        href="/"
+        href="/home/"
         title="Ir para Home"
         aria-label="Ir para Home"
       >
@@ -81,12 +89,17 @@ export function Menu() {
         aria-label="Mudar tema"
         onClick={handleThemeChange}
       >
-        {theme === 'dark' ? (
-          <Sun size={22} />
-        ) : (
-          <Moon size={22} />
-        )}
+        {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
       </a>
+
+      <button
+        type="button"
+        title="Sair"
+        aria-label="Sair"
+        onClick={handleLogout}
+      >
+        <SignOut size={22} />
+      </button>
     </nav>
   );
 }

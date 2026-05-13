@@ -7,11 +7,14 @@ import {
 
 import { useEffect } from 'react';
 
+import { Login } from '../../pages/Login';
 import { Home } from '../../pages/Home';
 import { History } from '../../pages/History';
 import { Settings } from '../../pages/Settings';
 import { AboutPomodoro } from '../../pages/AboutPomodoro';
 import { NotFound } from '../../pages/NotFound';
+
+import { ProtectedRoute } from '../ProtectedRoute';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,15 +33,42 @@ export function MainRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
 
-        <Route path="/history/" element={<History />} />
+        <Route
+          path="/home/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/settings/" element={<Settings />} />
+        <Route
+          path="/history/"
+          element={
+            <ProtectedRoute>
+              <History />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/settings/"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/about-pomodoro/"
-          element={<AboutPomodoro />}
+          element={
+            <ProtectedRoute>
+              <AboutPomodoro />
+            </ProtectedRoute>
+          }
         />
 
         <Route path="*" element={<NotFound />} />

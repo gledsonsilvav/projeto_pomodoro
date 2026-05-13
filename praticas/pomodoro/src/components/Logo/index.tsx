@@ -7,10 +7,7 @@ import styles from './styles.module.css';
 export function Logo() {
   return (
     <div className={styles.logo}>
-      <RouterLink
-        href="/"
-        className={styles.logoLink}
-      >
+      <RouterLink href="/home/" className={styles.logoLink}>
         <Timer size={38} weight="fill" />
 
         <span>Chronos</span>
