@@ -16,9 +16,11 @@ model Settings {
 }
 
 model Task {
-  id        Int      @id @default(autoincrement())
-  name      String
-  duration  Int
-  type      String
-  startDate BigInt
+  id            Int      @id @default(autoincrement())
+  name          String
+  duration      Int
+  type          String
+  startDate     BigInt
+  completeDate  BigInt?
+  interruptDate BigInt?
 }
