@@ -1,0 +1,17 @@
+.countdown {
+  font-size: clamp(9rem, 12vw, 15rem);
+
+  font-weight: 700;
+
+  line-height: 0.9;
+
+  color: var(--text);
+
+  letter-spacing: -0.8rem;
+
+  margin-bottom: 4rem;
+
+  text-shadow:
+    0 0 10px rgba(0, 180, 216, 0.4),
+    0 0 20px rgba(0, 255, 174, 0.25);
+}
