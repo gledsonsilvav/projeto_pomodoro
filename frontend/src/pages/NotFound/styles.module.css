@@ -1,0 +1,35 @@
+.container {
+  min-height: 100vh;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+.container h1 {
+  font-size: 8rem;
+
+  color: var(--secondary);
+}
+
+.container p {
+  font-size: 2rem;
+}
+
+.container a {
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
