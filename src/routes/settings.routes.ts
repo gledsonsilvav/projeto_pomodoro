@@ -1,30 +1,56 @@
 import { Router } from 'express';
 import { prisma } from '../lib/prisma';
+import type { AuthenticatedRequest } from '../middlewares/auth';
 
 export const settingsRouter = Router();
 
-// GET /settings - Busca ou cria as configurações padrão [cite: 141]
-settingsRouter.get('/', async (req, res) => {
-  let settings = await prisma.settings.findUnique({ where: { id: 1 } });
-  
+settingsRouter.get('/', async (req: AuthenticatedRequest, res) => {
+  const userId = req.userId;
+
+  if (!userId) {
+    return res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+
+  let settings = await prisma.settings.findUnique({
+    where: { userId },
+  });
+
   if (!settings) {
     settings = await prisma.settings.create({
-      data: { id: 1, workTime: 25, shortBreakTime: 5, longBreakTime: 15 },
+      data: {
+        userId,
+        workTime: 25,
+        shortBreakTime: 5,
+        longBreakTime: 15,
+      },
     });
   }
-  
+
   return res.json(settings);
 });
 
-// PUT /settings - Atualiza as configurações [cite: 150]
-settingsRouter.put('/', async (req, res) => {
+settingsRouter.put('/', async (req: AuthenticatedRequest, res) => {
+  const userId = req.userId;
   const { workTime, shortBreakTime, longBreakTime } = req.body;
-  
+
+  if (!userId) {
+    return res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+
   const settings = await prisma.settings.upsert({
-    where: { id: 1 },
-    update: { workTime, shortBreakTime, longBreakTime },
-    create: { id: 1, workTime, shortBreakTime, longBreakTime },
+    where: { userId },
+    update: {
+      workTime: Number(workTime),
+      shortBreakTime: Number(shortBreakTime),
+      longBreakTime: Number(longBreakTime),
+    },
+    create: {
+      userId,
+      workTime: Number(workTime),
+      shortBreakTime: Number(shortBreakTime),
+      longBreakTime: Number(longBreakTime),
+    },
   });
-  
+
   return res.json(settings);
 });
