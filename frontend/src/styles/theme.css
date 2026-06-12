@@ -1,0 +1,19 @@
+/* TEMA DARK (Padrão) - Ativo quando data-theme="dark" */
+:root {
+  --gray-900: #0a0f1a;    /* Fundo Escuro */
+  --text-default: #e6e9f0; /* Letras Claras */
+  --text-muted: #aab3cc;
+  
+  /* ... outras variáveis ... */
+}
+
+/* TEMA LIGHT (Inversão) - Ativo quando data-theme="light" */
+:root[data-theme='light'] {
+  --gray-900: #e6e9f0;    /* Fundo passa a ser CLARO */
+  --text-default: #0a0f1a; /* Letras passam a ser ESCURAS */
+  --text-muted: #363d56;   /* Texto secundário ESCURO */
+
+  /* Importante: se você usa outras variáveis para bordas/inputs, inverta-as aqui também */
+  --gray-100: #0a0f1a; 
+  --gray-200: #181f2e;
+}

@@ -1,0 +1,66 @@
+.menu {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+
+  padding: 1.4rem 2rem;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 1.6rem;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 20px rgba(0, 180, 216, 0.08),
+    inset 0 0 10px rgba(255, 255, 255, 0.02);
+}
+
+.menu a,
+.menu button {
+  width: 4.6rem;
+
+  height: 4.6rem;
+
+  border-radius: 1.2rem;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  color: #02111f;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.menu a svg,
+.menu button svg {
+  width: 2.4rem;
+
+  height: 2.4rem;
+}
+
+.menu a:hover,
+.menu button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+}

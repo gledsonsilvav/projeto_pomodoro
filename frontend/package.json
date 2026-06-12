@@ -1,0 +1,31 @@
+{
+  "name": "pomodoro-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "bcryptjs": "^3.0.3",
+    "date-fns": "^4.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "latest",
+    "phosphor-react": "^1.4.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "react-toastify": "^11.1.0",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  }
+}

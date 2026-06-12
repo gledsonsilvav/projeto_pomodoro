@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1.6rem;
+
+  text-align: center;
+}
+
+.container p {
+  font-size: 1.6rem;
+
+  font-weight: 700;
+}
+
+.buttonsContainer {
+  display: flex;
+
+  gap: 1.6rem;
+}
+
+.confirmButton,
+.cancelButton {
+  min-width: auto;
+
+  border: 0;
+
+  border-radius: 0.8rem;
+
+  padding: 1rem 1.4rem;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.confirmButton {
+  background: #00b37e;
+
+  color: #ffffff;
+}
+
+.cancelButton {
+  background: #ab222e;
+
+  color: #ffffff;
+}

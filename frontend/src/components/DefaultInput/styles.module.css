@@ -1,0 +1,44 @@
+.label {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--text-default);
+  margin-bottom: 0.8rem;
+  text-transform: capitalize; /* Deixa a primeira letra maiúscula */
+}
+
+.input {
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  color: var(--text-default);
+  width: 100%;
+  max-width: 32rem;
+  outline: none;
+
+  /* O truque: reserva 2px de borda transparente para o layout não "pular" no focus */
+  border: 0.2rem solid transparent;
+  border-bottom: 0.2rem solid var(--primary);
+
+  transition: all 0.1s ease-in-out;
+}
+
+/* Estado de Foco: Quando o usuário clica para digitar */
+.input:focus {
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--primary);
+}
+
+/* Estilizando o texto de sugestão */
+.input::placeholder {
+  color: var(--gray-500);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* Estado Desativado: Quando o timer estiver rodando */
+.input:disabled {
+  border-bottom: 0.2rem solid var(--disabled);
+  color: var(--text-muted);
+  cursor: not-allowed; /* Mostra o ícone de bloqueio no mouse */
+}
