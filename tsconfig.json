@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /* Configurações de Linguagem e Versão */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler", 
+    
+    /* Configurações de Interoperabilidade */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    
+    /* Configurações de Rigor */
+    "strict": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    
+    /* Ajustes de Compatibilidade */
+    "verbatimModuleSyntax": false, 
+    "ignoreDeprecations": "5.0",
+
+    /* Caminhos (Ajustado para evitar o erro de baseUrl) */
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
